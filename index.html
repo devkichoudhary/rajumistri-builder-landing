@@ -1,66 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Raju Mistri | Premium Home Construction</title>
+    <title>Raju Mistri | Premium Construction & Architecture</title>
     <meta name="description" content="Premium construction, custom homes, and modern architecture by Raju Mistri.">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
+
 <body>
-    <header>
-        <div class="logo">RAJU MISTRI</div>
+    <header class="navbar">
+        <div class="logo">RAJU <span class="gold-text">MISTRI</span></div>
         <nav>
-            <a href="#about">About</a>
+            <a href="#about">Philosophy</a>
             <a href="#services">Services</a>
-            <a href="#contact" class="nav-btn">Consultation</a>
+            <a href="#contact" class="nav-btn">Get in Touch</a>
         </nav>
     </header>
 
-    <section class="hero">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1 class="fade-in">Crafting Modern <br> <span class="gold">Masterpieces</span>.</h1>
-            <p class="fade-in delay-1">Exceptional home builders for those who demand perfection in every detail.</p>
-            <div class="cta-actions fade-in delay-2">
-                <a href="#contact" class="btn-primary">Start Your Project</a>
-                <a href="#services" class="btn-secondary">View Services</a>
+    <main>
+        <section class="hero" id="about">
+            <div class="hero-bg"></div>
+            <div class="hero-overlay"></div>
+            <div class="hero-content reveal">
+                <span class="eyebrow">Redefining Luxury Living</span>
+                <h1>Crafting <span class="gold-text tooltip">Masterpieces<span class="tooltiptext">With uncompromising
+                            quality</span></span> <br>In Brick & Stone.</h1>
+                <p>We don't just build houses; we curate luxury living spaces for the most discerning clients.
+                    Uncompromising quality, elite craftsmanship, and visionary design.</p>
+                <div class="cta-group">
+                    <a href="#contact" class="btn-primary">
+                        Discuss Your Project <i data-lucide="arrow-right"></i>
+                    </a>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="services" class="services">
-        <h2 class="section-title">Our Expertise.</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="icon">🏛️</div>
-                <h3>Custom Homes</h3>
-                <p>From foundation to the finest finishes, we bring your architectural vision to life with uncompromising quality.</p>
-            </div>
-            <div class="service-card">
-                <div class="icon">📐</div>
-                <h3>Architectural Planning</h3>
-                <p>Collaborating with top architects to ensure structural integrity and stunning modern aesthetics.</p>
-            </div>
-            <div class="service-card">
-                <div class="icon">🔨</div>
-                <h3>Luxury Renovations</h3>
-                <p>Transforming existing spaces into state-of-the-art living experiences with premium materials.</p>
-            </div>
-        </div>
-    </section>
+        <section id="services" class="services">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2>Our <span class="gold-text">Expertise</span></h2>
+                    <p>Elevating construction through precision engineering and artistic execution.</p>
+                </div>
 
-    <section id="contact" class="contact">
-        <div class="contact-box">
-            <h2>Ready to Build?</h2>
-            <p>Connect directly with Raju Mistri to discuss your dream project. Elevate your living space today.</p>
-            <a href="https://t.me/+fXl6Stjbn3M5ZWE9" class="btn-primary" target="_blank">Message on Telegram</a>
-        </div>
-    </section>
+                <div class="services-grid">
+                    <div class="service-card reveal">
+                        <div class="icon-wrapper">
+                            <i data-lucide="home"></i>
+                        </div>
+                        <h3>Custom Estates</h3>
+                        <p>Turnkey solutions for luxury custom homes. From architectural planning to the final coat of
+                            premium paint.</p>
+                    </div>
+                    <div class="service-card reveal" style="transition-delay: 0.1s;">
+                        <div class="icon-wrapper">
+                            <i data-lucide="compass"></i>
+                        </div>
+                        <h3>Structural Engineering</h3>
+                        <p>Flawless foundations and resilient structures designed to stand the test of time and element.
+                        </p>
+                    </div>
+                    <div class="service-card reveal" style="transition-delay: 0.2s;">
+                        <div class="icon-wrapper">
+                            <i data-lucide="hammer"></i>
+                        </div>
+                        <h3>Elite Renovations</h3>
+                        <p>Transforming ordinary spaces into breathtaking modern environments with high-end finishes.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="contact-glass reveal">
+                <h2>Begin Your <span class="gold-text">Legacy.</span></h2>
+                <p>Direct communication. Swift execution. Connect with Raju Mistri on Telegram to schedule your private
+                    consultation.</p>
+                <!-- UPDATED TELEGRAM LINK -->
+                <a href="https://t.me/Raju_mistri" class="btn-primary large" target="_blank">
+                    <i data-lucide="send"></i> Message on Telegram
+                </a>
+            </div>
+        </section>
+    </main>
 
     <footer>
-        <p>&copy; 2026 Raju Mistri. All Rights Reserved. Building with excellence.</p>
+        <div class="footer-content container">
+            <div class="logo">RAJU <span class="gold-text">MISTRI</span></div>
+            <p>&copy; 2026 Raju Mistri Builders. All Rights Reserved.</p>
+        </div>
     </footer>
+
+    <script>
+        lucide.createIcons();
+
+        // Reveal animations on scroll
+        const exposes = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        exposes.forEach(reveal => observer.observe(reveal));
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
 </body>
+
 </html>
