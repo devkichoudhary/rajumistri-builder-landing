@@ -97,12 +97,21 @@
         </div>
     </footer>
 
-    <!-- Floating Audio Player -->
-    <div class="audio-player-container">
+    <!-- Premium Music Player -->
+    <div class="music-player" id="music-player">
+        <div class="album-art" id="album-art">
+            <div class="record"></div>
+        </div>
+        <div class="track-info">
+            <div class="now-playing">NOW PLAYING</div>
+            <span class="track-name">Ambarsaria</span>
+            <span class="artist-name">Navaan Sandhu</span>
+        </div>
         <button id="audio-toggle" class="audio-btn" aria-label="Play Music">
-            <i data-lucide="music"></i>
+            <i data-lucide="play" id="play-icon"></i>
+            <i data-lucide="pause" id="pause-icon" style="display:none;"></i>
         </button>
-        <audio id="bg-music" loop>
+        <audio id="bg-music" loop autoplay>
             <source src="bg-music.mp3" type="audio/mpeg">
         </audio>
     </div>
@@ -135,18 +144,55 @@
         // Audio Player Logic
         const audio = document.getElementById('bg-music');
         const audioBtn = document.getElementById('audio-toggle');
+        const playIcon = document.getElementById('play-icon');
+        const pauseIcon = document.getElementById('pause-icon');
+        const albumArt = document.getElementById('album-art');
         let isPlaying = false;
 
-        audioBtn.addEventListener('click', () => {
+        function updatePlayerState() {
+            if (!audio.paused) {
+                isPlaying = true;
+                playIcon.style.display = 'none';
+                pauseIcon.style.display = 'block';
+                albumArt.classList.add('spinning');
+            } else {
+                isPlaying = false;
+                playIcon.style.display = 'block';
+                pauseIcon.style.display = 'none';
+                albumArt.classList.remove('spinning');
+            }
+        }
+
+        // Try autoplay on load, browser might block it
+        let playPromise = audio.play();
+        if (playPromise !== undefined) {
+            playPromise.then(_ => {
+                updatePlayerState();
+            }).catch(error => {
+                // Autoplay blocked, wait for user interaction anywhere on the document
+                const startInteraction = () => {
+                    audio.play();
+                    updatePlayerState();
+                    document.removeEventListener('click', startInteraction);
+                    document.removeEventListener('scroll', startInteraction);
+                };
+                document.addEventListener('click', startInteraction);
+                document.addEventListener('scroll', startInteraction, { once: true });
+            });
+        }
+
+        audioBtn.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevent document click from triggering twice
             if (isPlaying) {
                 audio.pause();
-                audioBtn.classList.remove('playing');
             } else {
                 audio.play();
-                audioBtn.classList.add('playing');
             }
-            isPlaying = !isPlaying;
+            updatePlayerState();
         });
+
+        audio.addEventListener('play', updatePlayerState);
+        audio.addEventListener('pause', updatePlayerState);
     </script>
 </body>
 
