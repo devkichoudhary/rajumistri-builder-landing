@@ -97,6 +97,16 @@
         </div>
     </footer>
 
+    <!-- Floating Audio Player -->
+    <div class="audio-player-container">
+        <button id="audio-toggle" class="audio-btn" aria-label="Play Music">
+            <i data-lucide="music"></i>
+        </button>
+        <audio id="bg-music" loop>
+            <source src="bg-music.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
     <script>
         lucide.createIcons();
 
@@ -120,6 +130,22 @@
             } else {
                 header.classList.remove('scrolled');
             }
+        });
+
+        // Audio Player Logic
+        const audio = document.getElementById('bg-music');
+        const audioBtn = document.getElementById('audio-toggle');
+        let isPlaying = false;
+
+        audioBtn.addEventListener('click', () => {
+            if (isPlaying) {
+                audio.pause();
+                audioBtn.classList.remove('playing');
+            } else {
+                audio.play();
+                audioBtn.classList.add('playing');
+            }
+            isPlaying = !isPlaying;
         });
     </script>
 </body>
